@@ -24,16 +24,20 @@ const tokenService = {
                 }
             );
         }
-        
+
         console.log(`Found ${accounts?.length} account(s) for pubKey ${pubKeyString}.`);
         return accounts;
     },
     getTokenData: async (connection, token) => {
-        if (token && token.mint) {
-            let mintPubkey = new PublicKey(token.mint);
-            let tokenmetaPubkey = await Metadata.getPDA(mintPubkey);
-            let tokenData = await Metadata.load(connection, tokenmetaPubkey);
-            return tokenData;
+        try {
+            if (token && token.mint) {
+                let mintPubkey = new PublicKey(token.mint);
+                let tokenmetaPubkey = await Metadata.getPDA(mintPubkey);
+                let tokenData = await Metadata.load(connection, tokenmetaPubkey);
+                return tokenData;
+            }
+        } catch (error) {
+            console.log(error);
         }
     },
     getMetaData: async (tokenData) => {
