@@ -1,4 +1,4 @@
-# NFT_server
+# metadata_nft_server
 Back-end application to fetch token metadata from a Solana wallet.
 
 1/ Create a .env file and fill in the following variable:  
@@ -16,4 +16,4 @@ SOLANA_NETWORK=
 - Metadata fetching
 
 # Related video tutorials:  
-- Upcoming
+- Fetch your NFT metadata from a Phantom wallet (https://youtu.be/2HnpSxxef4c)
